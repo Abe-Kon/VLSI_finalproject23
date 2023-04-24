@@ -1,0 +1,17 @@
+#VHDL FSM Example
+vlsifinal:
+	ghdl -a -fsynopsys vlsifinal.vhd
+	ghdl -a -fsynopsys vlsi_tbfinal.vhd
+	ghdl -e -fsynopsys vlsi_tb
+	ghdl -r vlsi_tb  --wave=./vlsi_tb.ghw --stop-time=500ns
+	
+verilog: 
+	yosys -m ghdl -p 'ghdl -fsynopsys vlsifinal.vhd -e vlsifinal; write_verilog vlsifinal.v'	
+	
+	
+clean:
+	rm *.o
+	rm *.cf
+	rm *.ghw
+	rm vlsifinal
+	rm vlsi_tb
