@@ -31,9 +31,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity output_tb is
+entity output_matrix_tb is
 --  Port ( );
-end output_tb;
+end output_matrix_tb;
 
 architecture Behavioral of output_matrix_tb is
     Component output_matrix is
@@ -53,24 +53,18 @@ signal D3_bit : std_logic;
 
 begin
 UUT: output_matrix port map(Q => Q_bits, D0 => D0_bit, D1 => D1_bit, D2 => D2_bit, D3 => D3_bit);
-process
-begin
-    clk <= '0';
-    wait for 1 ps;
-    clk <= '1';
-    wait for 1 ps;
-end process;
+
 
 process
     begin
         Q_bits <= (others => '0');
-        wait for 2 ps;
+        wait for 2 ns;
         
         Q_bits <= (1 => '1', others => '0');
-        wait for 2 ps;
+        wait for 2 ns;
         
         Q_bits <= (2 => '1', others => '0');
-        wait for 2 ps;
+        wait for 2 ns;
         
         Q_bits <= (10 => '1', others => '0');
         wait for 2 ps;

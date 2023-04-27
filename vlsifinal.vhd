@@ -10,16 +10,16 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity ROM is
+entity vlsifinal is
   Port (AROM: in STD_LOGIC_VECTOR(7 downto 0);
         ENROM: in STD_LOGIC;
         D3ROM: out STD_LOGIC;
         D2ROM: out STD_LOGIC;
         D1ROM: out STD_LOGIC;
         D0ROM: out STD_LOGIC);
-end ROM;
+end vlsifinal;
 
-architecture Behavioral of ROM is
+architecture Behavioral of vlsifinal is
     Component decode_8_256 is
     Port(A: in STD_LOGIC_VECTOR(7 downto 0);
         Q: out STD_LOGIC_VECTOR(255 downto 0);

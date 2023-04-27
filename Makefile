@@ -18,7 +18,14 @@ decoder:
 	ghdl -r decode_8_256_tb  --wave=./decode_8_256_tb.ghw --stop-time=500ns
 	
 verilog: 
-	yosys -m ghdl -p 'ghdl  vlsifinal.vhd -e vlsifinal; write_verilog vlsifinal.v'	
+	yosys -m ghdl -p 'ghdl decode_8_256.vhd -e decode_8_256; write_verilog decode_8_256.v
+	yosys -m ghdl -p 'ghdl output_matrix.vhd -e output_matrix; write_verilog output_matrix.v
+	yosys -m ghdl -p 'ghdl  vlsifinal.vhd -e vlsifinal; write_verilog vlsif>
+        
+veri:
+	yosys -m ghdl -p 'ghdl vlsifinal.vhd -e vlsifinal; write_verilog vlsifinal.v'
+	yosys -m ghdl -p 'ghdl decode_8_256.vhd -e decode_8_256; write_verilog decoder.v'
+	yosys -m ghdl -p 'ghdl output_matrix.vhd -e output_matrix; write_verilog matrix.v'
 	
 	
 clean:
